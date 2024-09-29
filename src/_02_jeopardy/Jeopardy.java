@@ -33,7 +33,7 @@ import game_tools.Sound;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -76,7 +76,15 @@ public class Jeopardy implements ActionListener {
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-		
+		thirdButton = createButton("$600");
+		fourthButton = createButton("$800");
+		fifthButton = createButton("$1000");
+		quizPanel.add(thirdButton);
+		quizPanel.add(fourthButton);
+		quizPanel.add(fifthButton);
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -112,15 +120,24 @@ public class Jeopardy implements ActionListener {
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 		if(buttonPressed==firstButton) {
-			askQuestion("How many points has LeBron scored in his career", "40,000", 200);
+			askQuestion("How many championships did Michael Jordan win?", "6", 200);
 		}
 			// Call the askQuestion() method
  
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
 
 		// If the buttonPressed was the secondButton
-		if(buttonPressed==secondButton) {
-			askQuestion("In which season did Russell Westbrook average a Triple Double", "2017", 400);
+		else if(buttonPressed==secondButton) {
+			askQuestion("How many points has LeBron scored in his career", "40,000", 400);
+		}
+		else if(buttonPressed==thirdButton) {
+			askQuestion("Who leads the NBA in all time 3-Pointers?", "Steph Curry", 600);
+		}
+		else if(buttonPressed==fourthButton) {
+			askQuestion("In which season did Russell Westbrook average a Triple Double", "2017", 800);
+		}
+		else if(buttonPressed==fifthButton) {
+			askQuestion("Which NBA team was the last to 3-peat?", "Los Angeles Lakers", 1000);
 		}
 			// Call the askQuestion() method with a harder question
 		
