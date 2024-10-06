@@ -1,4 +1,5 @@
 package _05_fortune_teller;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class FortuneTellerRunner {
@@ -9,6 +10,8 @@ public class FortuneTellerRunner {
 
     static void begin() {
         // Welcome the user. Give them a hint for the secret location.
+    	String welcome = JOptionPane.showInputDialog("Welcome, your objective is to find the secret message on the image");
+    	
 
     }
 }
