@@ -5,9 +5,11 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import game_tools.Sound;
@@ -41,18 +43,37 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
         // 7. Adjust your secret location co-ordinates here:
-        int secretLocationX = 0;
-        int secretLocationY = 0;
+        int secretLocationX = 259;
+        int secretLocationY = 158;
         
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
             // 8. Find a spooky sound and put it in your _05_fortune_teller package (freesound.org)
             //    play("creepy-noise.wav");
-            
+            play("creepy-noise.wav");
             // 9. Play the sound
             
             // 10. Insert your completed Magic 8 ball code here
-            
+            int num = new Random().nextInt(4);
+			// 3. Print out this variable
+			// 4. Get the user to enter a question for the 8 ball
+			String question = JOptionPane.showInputDialog("Enter a question for the fortune teller?");
+			// 5. If the random number is 0
+			if(num==0) {
+				JOptionPane.showMessageDialog(null, "Yes");
+			}	
+			// 6. If the random number is 1
+			else if(num==1) {
+				JOptionPane.showMessageDialog(null, "No");
+			}
+			// 7. If the random number is 2
+			else if(num==2) {
+				JOptionPane.showMessageDialog(null, "Maybe you should ask Google");
+			}
+			// 8. If the random number is 3
+			else {
+				JOptionPane.showMessageDialog(null, "I don't know the answer to your question");
+			}
         }
 
     }

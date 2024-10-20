@@ -7,11 +7,10 @@ public class FortuneTellerRunner {
         SwingUtilities.invokeLater(new FortuneTeller());
         begin();
     }
-
+    
     static void begin() {
         // Welcome the user. Give them a hint for the secret location.
-    	String welcome = JOptionPane.showInputDialog("Welcome, your objective is to find the secret message on the image");
+    	JOptionPane.showMessageDialog(null, "Welcome, your objective is to find the secret message on the image");
     	
-
     }
 }
