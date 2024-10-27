@@ -61,11 +61,24 @@ public class Calculator implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		String a = num1.getText();
+		int number1 = Integer.parseInt(a);
+		String b = num2.getText();
+		int number2 = Integer.parseInt(b);
+		int sum = 0;
 		if(e.getSource()==bAdd) {
-			String a = num1.getText();
-			int number1 = Integer.parseInt(a);
-			String b = num2.getText();
-			int number2 = Integer.parseInt(b);
+			sum = number1 + number2;
 		}
+		else if(e.getSource()==bSubtract) {
+			sum = number1 - number2;
+		}
+		else if(e.getSource()==bMultiply) {
+			sum = number1 * number2;
+		}
+		else if(e.getSource()==bDivide) {
+			sum = number1/number2;
+		}
+		label.setText(sum+"");
+		frame.pack();
 	}
 }
