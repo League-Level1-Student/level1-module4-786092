@@ -3,10 +3,12 @@ package _09_whack_a_mole;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener {
@@ -37,6 +39,8 @@ public class WhackAMole implements ActionListener {
 	JPanel panel = new JPanel();
 	JButton moleButton = new JButton();
 	Random random = new Random();
+	Date date = new Date();
+	int score = 0;
 	public void drawButtons(int num) {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,7 +61,7 @@ public class WhackAMole implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==moleButton) {
-			
+			score+=1;
 		}
 		else {
 			speak("You Missed!");
@@ -68,5 +72,14 @@ public class WhackAMole implements ActionListener {
 		int number = random.nextInt(24);
 		moleButton.setText("");
 		drawButtons(number);
+		if(score>=10) {
+			endGame(date, score);
+		}
+	}
+	private void endGame(Date timeAtStart, int molesWhacked) { 
+	    Date timeAtEnd = new Date();
+	    JOptionPane.showMessageDialog(null, "Your whack rate is "
+	            + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked)
+	                  + " moles per second.");
 	}
 }
