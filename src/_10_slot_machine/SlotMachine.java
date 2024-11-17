@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements ActionListener {
@@ -68,11 +69,45 @@ public class SlotMachine implements ActionListener {
 				label1 = createLabelImage("Slot Machine(2).png");
 				break;
 			case 2:
-				label1 = createLabelImage("SLot Machine(3).jpg");
+				label1 = createLabelImage("Slot Machine(3).jpg");
+			}
+			switch (num2) {
+			case 0:
+				label2 = createLabelImage("Slot Machine(1).png");
+				break;
+			case 1:
+				label2 = createLabelImage("Slot Machine(2).png");
+				break;
+			case 2:
+				label2 = createLabelImage("Slot Machine(3).jpg");
+			}
+			switch (num3) {
+			case 0:
+				label3 = createLabelImage("Slot Machine(1).png");
+				break;
+			case 1:
+				label3 = createLabelImage("Slot Machine(2).png");
+				break;
+			case 2:
+				label3 = createLabelImage("Slot Machine(3).jpg");
 			}
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}
+		frame.dispose();
+		frame = new JFrame();
+		panel = new JPanel();	
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel.add(label1);
+		panel.add(label2);
+		panel.add(label3);
+		panel.add(button);
+		frame.add(panel);
+		frame.pack();
+		if(num1==num2&&num2==num3) {
+			JOptionPane.showMessageDialog(null, "Congratulations, You WIN!");
 		}
 	}
 }
